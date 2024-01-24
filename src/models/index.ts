@@ -17,11 +17,24 @@ const sequelize = new Sequelize(dbconfig.DB, dbconfig.USER, dbconfig.PASSWORD,{
 let db = {
     Sequelize,
     sequelize,
-    users: require("./user")(sequelize, Sequelize)
-}
+    users: require("./user")(sequelize, Sequelize),
+    accountRoles: require("./accountrole")(sequelize, Sequelize),
+    userAccountRoles: require("./useraccountroles")(sequelize, Sequelize),
+};
+
+db.userAccountRoles.belongsTo(db.users, {
+    foreignKey: "userid",
+    onDelete: "cascade"
+})
+
+db.userAccountRoles.belongsTo(db.accountRoles, {
+    foreignKey: "accountroleid",
+    onDelete: "cascade"
+})
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.users = require("./user")(sequelize, Sequelize)
+
 
 export default db;

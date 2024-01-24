@@ -1,29 +1,18 @@
 module.exports = (sequelize: any, Sequelize: any) => {
     return sequelize.define(
-        "user",
+        "useraccountroles",
         {
-            id: {
+            userid: {
                 type: Sequelize.UUID,
                 defaultValue: Sequelize.UUIDV4,
                 primaryKey: true,
                 allowNull: false,
             },
-            email: {
+            accountroleid: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            username: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            passwordHash: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            verified: {
-                type: Sequelize.BOOLEAN,
-                defaultValue: 0,
-            },
+            
             createdAt: {
                 type: Sequelize.DATE
             },
