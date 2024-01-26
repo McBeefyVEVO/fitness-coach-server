@@ -2,18 +2,12 @@ module.exports = (sequelize: any, Sequelize: any) => {
     return sequelize.define(
         "accountrole",
         {
-            id: {
-                type: Sequelize.UUID,
-                defaultValue: Sequelize.UUIDV4,
-                primaryKey: true,
-                allowNull: false,
-            },
-
-            rolename: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull: false,
+                primaryKey: true,
+                
             },
-
             createdAt: {
                 type: Sequelize.DATE
             },
