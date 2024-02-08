@@ -16,9 +16,26 @@ const sequelize = new sequelize_1.Sequelize(db_1.dbconfig.DB, db_1.dbconfig.USER
 let db = {
     Sequelize: sequelize_1.Sequelize,
     sequelize,
-    users: require("./user")(sequelize, sequelize_1.Sequelize)
+    users: require("./user")(sequelize, sequelize_1.Sequelize),
+    accountRoles: require("./accountrole")(sequelize, sequelize_1.Sequelize),
+    userAccountRoles: require("./useraccountroles")(sequelize, sequelize_1.Sequelize),
 };
+db.users.belongsToMany(db.accountRoles, { through: db.userAccountRoles, as: "userRole" });
+db.accountRoles.belongsToMany(db.users, { through: db.userAccountRoles, as: "user" });
+/*
+db.userAccountRoles.belongsTo(db.users, {
+    foreignKey: "userid",
+    onDelete: "cascade"
+})
+
+db.userAccountRoles.belongsTo(db.accountRoles, {
+    foreignKey: "accountroleid",
+    onDelete: "cascade"
+})
+
 db.sequelize = sequelize;
-db.Sequelize = sequelize_1.Sequelize;
-db.users = require("./user")(sequelize, sequelize_1.Sequelize);
+db.Sequelize = Sequelize;
+db.users = require("./user")(sequelize, Sequelize)
+
+*/
 exports.default = db;

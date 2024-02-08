@@ -20,6 +20,18 @@ let db = {
     users: require("./user")(sequelize, Sequelize),
     accountRoles: require("./accountrole")(sequelize, Sequelize),
     userAccountRoles: require("./useraccountroles")(sequelize, Sequelize),
+    achievements: require("./achievements")(sequelize, Sequelize),
+    categories_exercises_records: require("./categories_exercises_records")(sequelize, Sequelize),
+    categories_exercises: require("./categories_exercises")(sequelize, Sequelize),
+    exercises: require("./exercises")(sequelize, Sequelize),
+    food_menu_ingredients: require("./food_menu_ingredients")(sequelize, Sequelize),
+    food_menu: require("./food_menu")(sequelize, Sequelize),
+    friends: require("./friends")(sequelize, Sequelize),
+    ingredients: require("./ingredients")(sequelize, Sequelize),
+    programs_exercises: require("./programs_exercises")(sequelize, Sequelize),
+    programs: require("./programs")(sequelize, Sequelize),
+    schedule: require("./schedule")(sequelize, Sequelize),
+    user_achievements: require("./user_achievements")(sequelize, Sequelize),
 };
 
 db.users.belongsToMany(db.accountRoles,{ through: db.userAccountRoles, as: "userRole" });

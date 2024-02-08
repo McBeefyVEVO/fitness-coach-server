@@ -1,27 +1,27 @@
 "use strict";
 module.exports = (sequelize, Sequelize) => {
-    return sequelize.define("user", {
+    return sequelize.define("exercises", {
         id: {
             type: Sequelize.UUID,
             defaultValue: Sequelize.UUIDV4,
             primaryKey: true,
             allowNull: false,
         },
-        username: {
+        name: {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        email: {
+        video: {
             type: Sequelize.STRING,
-            allowNull: false,
+            AllowNull: false,
         },
-        passwordHash: {
+        description: {
+            type: Sequelize.TEXT,
+            AllowNull: false,
+        },
+        small_desc: {
             type: Sequelize.STRING,
-            allowNull: false,
-        },
-        verified: {
-            type: Sequelize.BOOLEAN,
-            defaultValue: 0,
+            AllowNull: false,
         },
         createdAt: {
             type: Sequelize.DATE

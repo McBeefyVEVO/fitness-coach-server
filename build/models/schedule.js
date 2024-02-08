@@ -1,27 +1,19 @@
 "use strict";
 module.exports = (sequelize, Sequelize) => {
-    return sequelize.define("user", {
+    return sequelize.define("schedule", {
         id: {
             type: Sequelize.UUID,
             defaultValue: Sequelize.UUIDV4,
             primaryKey: true,
             allowNull: false,
         },
-        username: {
-            type: Sequelize.STRING,
+        scheduletable: {
+            type: sequelize.TEXT,
             allowNull: false,
         },
-        email: {
-            type: Sequelize.STRING,
+        user_id: {
+            type: Sequelize.UUID,
             allowNull: false,
-        },
-        passwordHash: {
-            type: Sequelize.STRING,
-            allowNull: false,
-        },
-        verified: {
-            type: Sequelize.BOOLEAN,
-            defaultValue: 0,
         },
         createdAt: {
             type: Sequelize.DATE

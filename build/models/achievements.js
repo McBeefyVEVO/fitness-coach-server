@@ -1,27 +1,32 @@
 "use strict";
 module.exports = (sequelize, Sequelize) => {
-    return sequelize.define("user", {
+    return sequelize.define("achievements", {
         id: {
             type: Sequelize.UUID,
             defaultValue: Sequelize.UUIDV4,
             primaryKey: true,
             allowNull: false,
         },
-        username: {
+        name: {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        email: {
-            type: Sequelize.STRING,
+        progress: {
+            type: Sequelize.TINYINT,
             allowNull: false,
         },
-        passwordHash: {
-            type: Sequelize.STRING,
+        //němel by tohle spíš být boolean a ne tinyint(1) nebo jsem retarded jako vždycky
+        //má vůbec mySQL boolean?
+        //fuck
+        done: {
+            type: Sequelize.TINYINT,
             allowNull: false,
         },
-        verified: {
-            type: Sequelize.BOOLEAN,
-            defaultValue: 0,
+        //idk jestli sem mám dávat Image Paths ale fuck it¨
+        //UPDATE: ano mám takže we chilling
+        imagePath: {
+            type: sequelize.STRING,
+            allowNull: true,
         },
         createdAt: {
             type: Sequelize.DATE

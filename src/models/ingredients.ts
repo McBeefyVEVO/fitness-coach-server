@@ -1,6 +1,6 @@
 module.exports = (sequelize: any, Sequelize: any) => {
     return sequelize.define(
-        "user",
+        "ingredients",
         {
             id: {
                 type: Sequelize.UUID,
@@ -8,55 +8,43 @@ module.exports = (sequelize: any, Sequelize: any) => {
                 primaryKey: true,
                 allowNull: false,
             },
-            username: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            email: {
-                type: Sequelize.STRING,
+            calories: {
+                type: Sequelize.SMALLINT,
                 allowNull: false,
             },
-            passwordHash: {
-                type: Sequelize.STRING,
+            carbs: {
+                type: Sequelize.FLOAT,
                 allowNull: false,
             },
-            verified: {
-                type: Sequelize.BOOLEAN,
-                defaultValue: 0,
+            fats: {
+                type: Sequelize.FLOAT,
+                allowNull: false,
             },
-            date_of_birth: {
-                type: Sequelize.DATE,
+            proteins: {
+                type: Sequelize.FLOAT,
+                allowNull: false,
+            },
+            sugars: {
+                type: Sequelize.FLOAT,
+                allowNull: false,
+            },
+            salts: {
+                type: Sequelize.FLOAT,
                 allowNull: false,
             },
             weight: {
                 type: Sequelize.FLOAT,
                 allowNull: false,
             },
-            height: {
-                type: Sequelize.FLOAT,
-                allowNull: false,
-            },
-            date_of_reg: {
-                type: Sequelize.DATE,
-                allowNull: false,
-            },
-            bannerPath: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            profilePicPath: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            stats: {
+            imagePath: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
             
-
-
-
-
 
 
 
