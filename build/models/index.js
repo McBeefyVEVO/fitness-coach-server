@@ -22,6 +22,8 @@ let db = {
 };
 db.users.belongsToMany(db.accountRoles, { through: db.userAccountRoles, as: "userRole" });
 db.accountRoles.belongsToMany(db.users, { through: db.userAccountRoles, as: "user" });
+
+
 /*
 db.userAccountRoles.belongsTo(db.users, {
     foreignKey: "userid",

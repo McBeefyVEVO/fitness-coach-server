@@ -1,6 +1,6 @@
 module.exports = (sequelize: any, Sequelize: any) => {
     return sequelize.define(
-        "food_menu_ingredients",
+        "meals_food",
         {
             id: {
                 type: Sequelize.UUID,
